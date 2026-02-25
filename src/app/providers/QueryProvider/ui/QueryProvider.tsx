@@ -1,5 +1,5 @@
 import React from "react";
-import { queryClient } from "@/shared/api/client";
+import { queryClient } from "@/shared/api";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ReactNode } from "react";

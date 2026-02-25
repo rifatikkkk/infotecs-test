@@ -7,6 +7,7 @@ export const inputMixin = css`
     font-size: 16px;
     border-radius: 6px;
     border: 1px solid #00000073;
+    background-color: transparent;
 
     &:hover {
       border-color: black;
@@ -14,6 +15,10 @@ export const inputMixin = css`
 
     &::placeholder {
       color: #00000073;
+    }
+
+    &:disabled {
+      opacity: 0.5;
     }
   }
 `;
@@ -40,6 +45,10 @@ export const inputPasswordMixin = css`
 
       &:hover {
         border-color: black;
+      }
+
+      &:disabled {
+        opacity: 0.5;
       }
     }
 

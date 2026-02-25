@@ -4,11 +4,11 @@ import styled from "styled-components";
 import { inputMixin, inputPasswordMixin } from "@/shared/styles/mixins";
 
 interface InputProps {
+  id: string;
   value?: string;
   disabled?: boolean;
   onChange?: (value: string) => void;
   placeholder?: string;
-  ref?: Ref<HTMLInputElement>;
   type?: "text" | "password";
 }
 
@@ -21,11 +21,11 @@ const StyledPasswordInput = styled(AntInput.Password)`
 `;
 
 export const Input: React.FC<InputProps> = ({
+  id,
   value,
   disabled = false,
   onChange,
   placeholder,
-  ref,
   type = "text",
 }) => {
   const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -36,6 +36,7 @@ export const Input: React.FC<InputProps> = ({
     <>
       {type === "password" ? (
         <StyledPasswordInput
+          id={id}
           value={value}
           disabled={disabled}
           onChange={handleChange}
@@ -44,6 +45,7 @@ export const Input: React.FC<InputProps> = ({
         />
       ) : (
         <StyledInput
+          id={id}
           value={value}
           disabled={disabled}
           onChange={handleChange}

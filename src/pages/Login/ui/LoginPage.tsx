@@ -4,10 +4,6 @@ import { Content } from "antd/lib/layout/layout";
 import React from "react";
 import styled from "styled-components";
 
-interface LoginPageProps {
-  vertical: boolean;
-}
-
 const StyledLayout = styled(Layout)`
   min-height: 100vh;
 `;
