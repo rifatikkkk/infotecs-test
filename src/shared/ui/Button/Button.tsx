@@ -10,17 +10,19 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const StyledButton = styled(AntButton)`
-  margin-left: auto;
-  padding: 10px 15px;
-  font-size: 16px;
-  border-radius: 6px;
-  color: white;
-  background-color: #226292;
-  border: 1px solid #3a5b73;
-  cursor: pointer;
+  && {
+    margin-left: auto;
+    font-size: 16px;
+    padding: 0px 15px;
+    border-radius: 6px;
+    color: white;
+    background-color: #226292;
+    border: 1px solid #3a5b73;
+    cursor: pointer;
 
-  &:disabled {
-    opacity: 0.5;
+    &:disabled {
+      opacity: 0.5;
+    }
   }
 `;
 

@@ -4,23 +4,24 @@ import { Content } from "antd/lib/layout/layout";
 import React from "react";
 import styled from "styled-components";
 
-const StyledLayout = styled(Layout)`
+const StyledContent = styled(Content)`
   min-height: 100vh;
 `;
 
-const StyledContent = styled(Content)`
+const StyledLayout = styled(Layout)`
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  background-color: white;
 `;
 
 export default function LoginPage() {
   return (
-    <StyledLayout>
-      <StyledContent>
+    <StyledContent>
+      <StyledLayout>
         <LoginForm />
-      </StyledContent>
-    </StyledLayout>
+      </StyledLayout>
+    </StyledContent>
   );
 }

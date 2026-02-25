@@ -8,8 +8,12 @@ interface TitleProps {
 const { Title } = Typography;
 
 const StyledTitle = styled(Title)`
-  font-size: 24px;
-  font-weight: 400;
+  && {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1;
+    margin: 0;
+  }
 `;
 
 export const CustomTitle: React.FC<TitleProps> = ({ content }) => {
