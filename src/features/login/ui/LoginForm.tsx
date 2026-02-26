@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Form, Space } from "antd";
 import styled from "styled-components";
-import { useAuthQuery, useNotification } from "@/shared/hooks";
+import { useNotification } from "@/shared/hooks";
 import { Button, Input, Title } from "@/shared/ui";
+import { useAuth } from "@/features/login";
 
 const StyledWrapper = styled(Space)`
   && {
@@ -26,7 +27,7 @@ export const LoginForm: React.FC = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
 
-  const { loginMutate, isLoggingIn, loginError } = useAuthQuery();
+  const { loginMutate, isLoggingIn, loginError } = useAuth();
 
   const { showNotification } = useNotification();
 

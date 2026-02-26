@@ -1,36 +1,11 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { loginRequest } from "@/shared/api";
 import { AUTH_CONFIG } from "@/shared/config";
-import { queryKeys } from "@/shared/constants";
 import { getErrorMessage } from "@/shared/utils";
+import { getCurrentUser, queryKeys } from "@/entities/user/model";
 
-interface User {
-  id: string;
-  login: string;
-  token: string;
-}
-
-const getCurrentUser = (): User | null => {
-  const token = localStorage.getItem("auth_token");
-
-  if (!token) {
-    return null;
-  }
-
-  return {
-    id: "1",
-    login: "admin",
-    token: token,
-  };
-};
-
-export const useAuthQuery = () => {
+export const useAuth = () => {
   const queryClient = useQueryClient();
-
-  const userQuery = useQuery({
-    queryKey: queryKeys.auth.user,
-    queryFn: getCurrentUser,
-  });
 
   const loginMutation = useMutation({
     mutationFn: ({ login, password }: { login: string; password: string }) =>
@@ -49,7 +24,6 @@ export const useAuthQuery = () => {
     : null;
 
   return {
-    user: userQuery.data,
     loginMutate: loginMutation.mutate,
     isLoggingIn: loginMutation.isPending,
     loginError,
