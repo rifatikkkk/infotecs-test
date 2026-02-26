@@ -1,9 +1,9 @@
 import React, { lazy } from "react";
 
-export const LoginPageAsync = lazy(
+export const UsersPageAsync = lazy(
   () =>
     new Promise((resolve) => {
       //@ts-expect-error Simulate delay
-      setTimeout(() => resolve(import("./LoginPage")), 1000);
+      setTimeout(() => resolve(import("./UsersPage")), 1000);
     }),
 );

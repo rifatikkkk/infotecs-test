@@ -1,18 +1,27 @@
 import React from "react";
 import type { RouteProps } from "react-router";
 
-import { HomePage } from "@/pages/Home";
 import { LoginPage } from "@/pages/Login";
+import { UsersPage } from "@/pages/Users";
 
 import { AppRoutes, routePaths } from "@/shared/config";
+import { AuthMiddleware } from "./ui/AuthMiddleware";
 
 export const routeConfig: RouteProps[] = [
   {
-    path: routePaths[AppRoutes.HOME],
-    element: <HomePage />,
+    path: routePaths[AppRoutes.USERS],
+    element: (
+      <AuthMiddleware requireAuth>
+        <UsersPage />
+      </AuthMiddleware>
+    ),
   },
   {
     path: routePaths[AppRoutes.LOGIN],
-    element: <LoginPage />,
+    element: (
+      <AuthMiddleware requireAuth={false}>
+        <LoginPage />
+      </AuthMiddleware>
+    ),
   },
 ];

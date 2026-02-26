@@ -1,9 +1,8 @@
-import { useAuthQuery } from "@/shared/hooks";
-import { Button, Input, Title } from "@/shared/ui";
-import { Form, notification, Space } from "antd";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
+import { Form, Space } from "antd";
 import styled from "styled-components";
+import { useAuthQuery, useNotification } from "@/shared/hooks";
+import { Button, Input, Title } from "@/shared/ui";
 
 const StyledWrapper = styled(Space)`
   && {
@@ -27,20 +26,12 @@ export const LoginForm: React.FC = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
 
-  const navigate = useNavigate();
+  const { loginMutate, isLoggingIn, loginError } = useAuthQuery();
 
-  const { loginMutate, isLoggingIn, loginError, user } = useAuthQuery();
-
-  useEffect(() => {
-    user && navigate("/users");
-  }, [user, navigate]);
+  const { showNotification } = useNotification();
 
   useEffect(() => {
-    loginError &&
-      notification["error"]({
-        message: "Ошибка авторизации",
-        description: loginError,
-      });
+    if (loginError) showNotification("error", "Ошибка авторизации", loginError);
   }, [loginError]);
 
   const handleSubmit = () => {
