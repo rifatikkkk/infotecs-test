@@ -1,24 +1,31 @@
-import { Avatar, List } from "antd";
+import { Users } from "@/entities/users/model";
+import { getFormatDate } from "@/shared/utils";
+import { Avatar, List, Typography } from "antd";
 import React from "react";
+import styled from "styled-components";
 
-type ListUsersProps = {};
+type ListUsersProps = {
+  data: Users[] | undefined;
+};
 
-const data = [
-  {
-    title: "Ant Design Title 1",
-  },
-  {
-    title: "Ant Design Title 2",
-  },
-  {
-    title: "Ant Design Title 3",
-  },
-  {
-    title: "Ant Design Title 4",
-  },
-];
+const StyledTitle = styled(Typography)`
+  && {
+    font-size: 16px;
+    cursor: pointer;
+    color: black;
+    font-weight: 600;
+  }
+`;
 
-export const ListUsers: React.FC<ListUsersProps> = () => {
+const StyledDescription = styled(Typography)`
+  && {
+    font-size: 16px;
+    color: #00000073;
+    font-weight: 400;
+  }
+`;
+
+export const ListUsers: React.FC<ListUsersProps> = ({ data }) => {
   return (
     <List
       itemLayout="horizontal"
@@ -26,9 +33,11 @@ export const ListUsers: React.FC<ListUsersProps> = () => {
       renderItem={(item) => (
         <List.Item>
           <List.Item.Meta
-            avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
-            title={<a href="https://ant.design">{item.title}</a>}
-            description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+            avatar={<Avatar src={item.avatar} style={{ cursor: "pointer" }} />}
+            title={<StyledTitle>{item.name}</StyledTitle>}
+            description={
+              <StyledDescription>{`Зарегистрирован ${getFormatDate(item.createdAt)}`}</StyledDescription>
+            }
           />
         </List.Item>
       )}
