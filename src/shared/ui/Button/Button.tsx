@@ -2,11 +2,15 @@ import React, { ButtonHTMLAttributes, ReactNode } from "react";
 import { Button as AntButton } from "antd";
 import styled from "styled-components";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends Omit<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  "type"
+> {
   children?: ReactNode;
   disabled?: boolean;
   isLoading?: boolean;
   htmlType?: "button" | "submit" | "reset";
+  type?: "primary" | "default" | "dashed" | "link" | "text" | "ghost";
 }
 
 const StyledButton = styled(AntButton)`
@@ -30,9 +34,18 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   disabled = false,
   htmlType = "button",
+  type = "default",
+  onClick,
+  ...props
 }) => {
   return (
-    <StyledButton htmlType={htmlType} disabled={disabled}>
+    <StyledButton
+      type={type} // используем antType для стиля кнопки
+      htmlType={htmlType}
+      disabled={disabled}
+      onClick={onClick} // явно передаем onClick
+      {...props}
+    >
       {children}
     </StyledButton>
   );
