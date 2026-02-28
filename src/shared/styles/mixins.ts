@@ -2,6 +2,7 @@ import { css } from "styled-components";
 
 export const inputMixin = css`
   && {
+    color: #000000d9;
     padding: 5px 10px;
     font-size: 16px;
     border-radius: 6px;
@@ -19,7 +20,7 @@ export const inputMixin = css`
     }
 
     &:disabled {
-      opacity: 0.5;
+      background-color: #dedede;
     }
   }
 `;
@@ -43,10 +44,14 @@ export const inputPasswordMixin = css`
       &::placeholder {
         color: #00000073;
       }
+      &:disabled {
+        background-color: #dedede;
+        color: #000000d9;
+      }
     }
 
     &.ant-input-affix-wrapper-disabled {
-      opacity: 0.5;
+      background-color: #dedede;
     }
   }
 `;

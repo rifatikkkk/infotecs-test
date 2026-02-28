@@ -1,2 +1,2 @@
 export { queryKeys } from "./constants/queryKeys";
-export type { Users } from "./types/UsersSchema";
+export type { Users, UsersData } from "./types/UsersSchema";
