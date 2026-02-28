@@ -6,6 +6,8 @@ import { Input } from "../Input/Input";
 interface FieldProps {
   id: string;
   label: string;
+  value: string;
+  onChange: (value: string) => void;
   isDisabled?: boolean;
 }
 
@@ -32,12 +34,14 @@ const StyledLabel = styled(Typography)`
 export const Field: React.FC<FieldProps> = ({
   id,
   label,
+  value,
+  onChange,
   isDisabled = false,
 }) => {
   return (
     <StyledField size={0}>
       <StyledLabel>{label}</StyledLabel>
-      <Input id={id} disabled={isDisabled} />
+      <Input id={id} disabled={isDisabled} value={value} onChange={onChange} />
     </StyledField>
   );
 };
