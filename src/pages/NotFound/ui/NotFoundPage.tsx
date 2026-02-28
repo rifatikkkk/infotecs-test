@@ -8,11 +8,7 @@ export const NotFoundPage: React.FC = () => {
   const navigate = useNavigate();
 
   const handleClickBack = () => {
-    if (window.history.length < 1) {
-      navigate(routePaths.login);
-      return;
-    }
-    navigate(-1);
+    navigate(routePaths.login);
   };
   return (
     <Result
