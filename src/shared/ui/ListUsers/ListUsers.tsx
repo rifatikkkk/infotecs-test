@@ -6,6 +6,7 @@ import styled from "styled-components";
 
 type ListUsersProps = {
   data: Users[] | undefined;
+  onItemClick: () => void;
 };
 
 const StyledTitle = styled(Typography)`
@@ -25,7 +26,7 @@ const StyledDescription = styled(Typography)`
   }
 `;
 
-export const ListUsers: React.FC<ListUsersProps> = ({ data }) => {
+export const ListUsers: React.FC<ListUsersProps> = ({ data, onItemClick }) => {
   return (
     <List
       itemLayout="horizontal"
@@ -33,8 +34,14 @@ export const ListUsers: React.FC<ListUsersProps> = ({ data }) => {
       renderItem={(item) => (
         <List.Item>
           <List.Item.Meta
-            avatar={<Avatar src={item.avatar} style={{ cursor: "pointer" }} />}
-            title={<StyledTitle>{item.name}</StyledTitle>}
+            avatar={
+              <Avatar
+                onClick={onItemClick}
+                src={item.avatar}
+                style={{ cursor: "pointer" }}
+              />
+            }
+            title={<StyledTitle onClick={onItemClick}>{item.name}</StyledTitle>}
             description={
               <StyledDescription>{`Зарегистрирован ${getFormatDate(item.createdAt)}`}</StyledDescription>
             }
