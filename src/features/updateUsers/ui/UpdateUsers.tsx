@@ -6,6 +6,7 @@ import { Space } from "antd";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useUpdateUserMutation } from "../model/hooks/useUpdateUsers";
+import { DeleteUsersButton } from "@/features/deleteUsers";
 
 interface UpdateUsersProps {
   user: Users | null;
@@ -81,6 +82,7 @@ export const UpdateUsers: React.FC<UpdateUsersProps> = ({
     updateUserMutation.mutate({ id: user.id, data: { name, avatar } });
     handleCancel();
   };
+
   return (
     <Modal
       title="Редактирование пользователя"
@@ -89,7 +91,7 @@ export const UpdateUsers: React.FC<UpdateUsersProps> = ({
       handleCancel={handleCancel}
       listButton={
         <StyledFooterButton>
-          <Button key="delete">Удалить</Button>
+          <DeleteUsersButton idUser={user?.id} onCancel={handleCancel} />
           <Space direction="horizontal" size="small">
             <Button key="save" onClick={handleSave}>
               Сохранить
