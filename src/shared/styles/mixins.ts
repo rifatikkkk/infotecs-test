@@ -2,7 +2,6 @@ import { css } from "styled-components";
 
 export const inputMixin = css`
   && {
-    width: 400px;
     padding: 5px 10px;
     font-size: 16px;
     border-radius: 6px;
@@ -27,7 +26,6 @@ export const inputMixin = css`
 
 export const inputPasswordMixin = css`
   && {
-    width: 400px;
     padding: 5px 10px;
     border: 1px solid #00000073;
     border-radius: 6px;
