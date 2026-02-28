@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 type ListUsersProps = {
   data: Users[] | undefined;
-  onItemClick: () => void;
+  onItemClick: (user: Users) => void;
 };
 
 const StyledTitle = styled(Typography)`
@@ -36,12 +36,16 @@ export const ListUsers: React.FC<ListUsersProps> = ({ data, onItemClick }) => {
           <List.Item.Meta
             avatar={
               <Avatar
-                onClick={onItemClick}
+                onClick={() => onItemClick(item)}
                 src={item.avatar}
                 style={{ cursor: "pointer" }}
               />
             }
-            title={<StyledTitle onClick={onItemClick}>{item.name}</StyledTitle>}
+            title={
+              <StyledTitle onClick={() => onItemClick(item)}>
+                {item.name}
+              </StyledTitle>
+            }
             description={
               <StyledDescription>{`Зарегистрирован ${getFormatDate(item.createdAt)}`}</StyledDescription>
             }

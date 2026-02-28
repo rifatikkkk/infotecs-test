@@ -7,7 +7,7 @@ interface FieldProps {
   id: string;
   label: string;
   value: string;
-  onChange: (value: string) => void;
+  onChange?: (value: string) => void;
   isDisabled?: boolean;
 }
 
