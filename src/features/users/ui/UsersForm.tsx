@@ -19,7 +19,7 @@ export const UsersForm: React.FC = () => {
   const [openUpdate, setOpenUpdate] = useState(false);
   const [selectedUser, setSelectedUser] = useState<Users | null>(null);
 
-  const { data: users } = useUsersQuery();
+  const { data: users, isLoading } = useUsersQuery();
 
   const showModalCreate = () => {
     setOpenCreate(true);
@@ -40,7 +40,7 @@ export const UsersForm: React.FC = () => {
 
   return (
     <StyledFormUsers direction="vertical" size="large">
-      <ListUsers data={users} onItemClick={showModalUpdate} />
+      <ListUsers data={users} isLoading={isLoading} onItemClick={showModalUpdate} />
       <Button onClick={showModalCreate}>Создать пользователя</Button>
       <CreateUsers isOpen={openCreate} handleCancel={handleCancelCreate} />
       <UpdateUsers
