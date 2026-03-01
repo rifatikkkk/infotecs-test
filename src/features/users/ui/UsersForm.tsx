@@ -11,11 +11,11 @@ const StyledFormUsers = styled(Space)`
 `;
 
 export const UsersForm: React.FC = () => {
-  const { data: users } = useUsersQuery();
+  const { data: users, isLoading } = useUsersQuery();
 
   return (
     <StyledFormUsers direction="vertical" size="large">
-      <ListUsers data={users} />
+      <ListUsers data={users} isLoading={isLoading} />
       <Button>Создать пользователя</Button>
     </StyledFormUsers>
   );

@@ -6,6 +6,7 @@ import styled from "styled-components";
 
 type ListUsersProps = {
   data: Users[] | undefined;
+  isLoading: boolean;
 };
 
 const StyledTitle = styled(Typography)`
@@ -25,10 +26,11 @@ const StyledDescription = styled(Typography)`
   }
 `;
 
-export const ListUsers: React.FC<ListUsersProps> = ({ data }) => {
+export const ListUsers: React.FC<ListUsersProps> = ({ data, isLoading }) => {
   return (
     <List
       itemLayout="horizontal"
+      loading={isLoading}
       dataSource={data}
       renderItem={(item) => (
         <List.Item>
