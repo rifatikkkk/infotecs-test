@@ -1,4 +1,4 @@
-import { Users } from "@/entities/users/model";
+import { Users } from "@/shared/types";
 import { getFormatDate } from "@/shared/utils";
 import { Avatar, List, Typography } from "antd";
 import React from "react";
@@ -15,6 +15,7 @@ const StyledTitle = styled(Typography)`
     cursor: pointer;
     color: black;
     font-weight: 600;
+    margin: 0;
   }
 `;
 
