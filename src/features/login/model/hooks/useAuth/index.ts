@@ -1,15 +1,15 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { loginRequest } from "@/shared/api";
 import { AUTH_CONFIG } from "@/shared/config";
 import { getErrorMessage } from "@/shared/utils";
 import { getCurrentUser, queryKeys } from "@/entities/user/model";
+import { loginApi } from "../../api/loginApi";
 
 export const useAuth = () => {
   const queryClient = useQueryClient();
 
   const loginMutation = useMutation({
     mutationFn: ({ login, password }: { login: string; password: string }) =>
-      loginRequest(login, password),
+      loginApi(login, password),
     onSuccess: (token) => {
       localStorage.setItem(AUTH_CONFIG.TOKEN_KEY, token);
 

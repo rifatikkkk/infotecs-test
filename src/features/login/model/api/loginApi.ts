@@ -1,9 +1,6 @@
 import { AUTH_CONFIG } from "@/shared/config";
 
-export const loginRequest = (
-  login: string,
-  password: string,
-): Promise<string> => {
+export const loginApi = (login: string, password: string): Promise<string> => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (

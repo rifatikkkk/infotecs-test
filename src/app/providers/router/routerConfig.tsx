@@ -6,6 +6,7 @@ import { UsersPage } from "@/pages/Users";
 
 import { AppRoutes, routePaths } from "@/shared/config";
 import { AuthMiddleware } from "./ui/AuthMiddleware";
+import { NotFoundPage } from "@/pages/NotFound";
 
 export const routeConfig: RouteProps[] = [
   {
@@ -23,5 +24,9 @@ export const routeConfig: RouteProps[] = [
         <LoginPage />
       </AuthMiddleware>
     ),
+  },
+  {
+    path: routePaths[AppRoutes.NOT_FOUND],
+    element: <NotFoundPage />,
   },
 ];

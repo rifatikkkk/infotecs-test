@@ -1,5 +1,5 @@
+import { LogoutButton } from "@/features/logout";
 import { UsersForm } from "@/features/users";
-import { Button } from "@/shared/ui";
 import { Layout } from "antd";
 import React from "react";
 import styled from "styled-components";
@@ -18,7 +18,7 @@ export default function UsersPage() {
   return (
     <StyledLayout>
       <UsersForm />
-      <Button>Выход</Button>
+      <LogoutButton />
     </StyledLayout>
   );
 }

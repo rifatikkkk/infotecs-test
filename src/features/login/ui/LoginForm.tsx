@@ -9,7 +9,6 @@ const StyledWrapper = styled(Space)`
   && {
     display: flex;
     flex-direction: column;
-    width: 400px;
     align-items: flex-start;
   }
 `;
@@ -19,7 +18,7 @@ const StyledFormInput = styled(Form)`
     display: flex;
     flex-direction: column;
     gap: 15px;
-    width: 100%;
+    width: 400px;
   }
 `;
 

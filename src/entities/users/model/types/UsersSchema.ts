@@ -4,3 +4,8 @@ export interface Users {
   avatar: string;
   createdAt: string;
 }
+
+export interface UsersData {
+  name: string;
+  avatar: string;
+}
